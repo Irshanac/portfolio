@@ -86,7 +86,26 @@ textarea, input {
 .grid {
     display: grid;
     grid-template-columns: 4fr 8fr; 
-    column-gap: 1.875rem;
+    column-gap: 1.8rem;
+}
+.section{
+    padding-top: 3.75rem;
+    padding-bottom: 3.75rem;
+}
+.section__title{
+    color: var(--fs-h2);
+    line-height: 1.17em;
+    font-weight: var(--medium);
+    margin-bottom: 1em;
+}
+.text-lg{
+    font-size: var(--fs-lg);
+    line-height: 1.67em;
+
+}
+.text-sm{
+    font-size: var(--fs-sm);
+    line-height: 1.3rem;
 }
 
 /* Home Section */
@@ -223,3 +242,91 @@ textarea, input {
 .nav__toggle, .nav__close {
     display: none; /* These can be shown later for mobile */
 }
+/* about*/
+.about {
+    margin-bottom: 0.8em;
+    text-align: justify;
+}
+
+.button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 1em 2em;
+    border-radius: 1.56rem;
+    font-weight: var(--semibold);
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: var(--primary-color-alt);
+}
+
+.button--flex {
+    display: inline-flex;
+    align-items: center; 
+    column-gap: 0.3rem;
+}
+
+.fa-download {
+    margin-right: 0.5rem; 
+}
+/* General styling for project section */
+/* .project__item{
+    grid-template-columns: 5fr;
+} */
+/* General styling for project section */
+.project__item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0; /* Removes the gap between columns */
+  }
+  
+  .project__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch; /* Ensures the image and text are of the same height */
+    width: 100%;
+    border-radius: 2rem;
+    border: 1px solid var(--border-color);
+  }
+  
+  .project__item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 2rem;
+    /* Centers the image vertically if necessary */
+  }
+  .project__data{
+    padding: 2rem;
+  }
+  .project__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-top-left-radius: 2rem; /* Rounded top-left corner */
+    border-bottom-left-radius: 2rem;/* Ensures the image covers the container without distortion */
+  }
+  
+  .project__items {
+    padding:0;
+    margin: 0; /* Ensures no extra space around the text container */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .project__title {
+    margin-bottom: 0.8em;
+  }
+  
+  .project__description {
+    margin-bottom: 2.5rem;
+    text-align: justify;
+  }
+ 
+  
+  
+  
