@@ -149,9 +149,77 @@ textarea, input {
     font-size: 1.7rem;
     line-height: 1.36em;
     margin-right: 0.25rem;
-    transform: .3s;
+    transition: .3s;
     opacity: .5;
 }
 .home__social-link:hover{
     opacity: 1;
+}
+/*header*/
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.nav {
+    height: calc(var(--header-height));
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+}
+
+.nav__list {
+    display: flex;
+    column-gap: 1rem; /* Adds spacing between list items */
+}
+
+.nav__link {
+    color: white;
+    font-size: 0.9rem;
+    font-weight: var(--bold);
+    font-family: var(--mono-font);
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1rem;
+    position: relative; /* For the ::after pseudo-element */
+    transition: .3s;
+}
+
+.nav__link:hover {
+    opacity: .7;
+}
+
+.nav__link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width .3s, left .3s;
+    opacity: 0;
+}
+
+.nav__link:hover::after {
+    width: 100%;
+    left: 0;
+    opacity: 1;
+}
+
+.active-link {
+    opacity: .7;
+}
+
+.active-link::after {
+    width: 100%;
+    left: 0;
+    opacity: 1;
+}
+
+.nav__toggle, .nav__close {
+    display: none; /* These can be shown later for mobile */
 }
