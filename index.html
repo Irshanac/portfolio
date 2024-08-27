@@ -8,44 +8,40 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "oYAHJVr5HuWzJ96DA",
+      });
+   })();
+</script>
 </head>
 <body>
-  <header class="header" id="header">
-    <nav class="nav container">
-      <div class="nav__menu" id="nav__menu">
-        <ul class="nav__list">
-          <li>
-            <a href="#home" class="nav__link active-link">Home</a>
-          </li>
-          <li>
-            <a href="#project" class="nav__link ">Project</a>
-          </li>
-          <li>
-            <a href="#skill" class="nav__link ">Skill</a>
-          </li>
-          <li>
-            <a href="#about" class="nav__link ">About us</a>
-          </li>
-          <li>
-            <a href="#contact" class="nav__link ">Contact</a>
-          </li>
+ 
+    <header class="header" id="header">
+      <nav>
+        <ul id="menuList">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skill">Skill</a></li>
+          <li><a href="#project">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
-        <div class="nav__close" id="nav__close">
-          <i class="fa fa-close" style="font-size:36px"></i>
+        <div class="menu-icon">
+          <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
         </div>
-      </div>
-      <div class="nav__toggle" id="nav__toggle">
-        <i class="fa-solid fa-bars"></i>
-      </div>
-    </nav>
-</header>
+      </nav>
+    </header>
+
 
   <div class="main">
     <section class="home" id="home"> 
-      <div class="home__container container grid">
-        <img src="/website/img/photo.jpg" alt="" class="home__img">
-        <div class="home__data">
+      <div class="home__container container grid col-12 md:col-6">
+        <img src="photo.png" alt="" class="home__img">
+        <div class="home__data col-12 md:col-6">
           <h1 class="home__name">Irshana</h1>
           <p class="home__work">Student</p> 
           <dl class="home__list">
@@ -76,9 +72,15 @@
       Hi
     </h2>
     <p class="about__details text-lg">
-      irshana .dfghjklkuytresxcvbnmlkjhgfdszxcvbnm sdfgh sfjhdfndsc sdjnxs sdghxjakxncxb sjdsnm s,kjdfhcx slchcl,sdncjhcdc  
+      Iam irshana .A front-end developer specializing in web development in
+      React. Graduate from Institute of Engineering and
+      Technology, University of Calicut And Also completed
+      Diploma in Computer Engineering with Distinction from
+      Avukaderkutty Naha Sahib Memorial Gov.Polytechnic
+      College Thirurangadi. My passion for creating dynamic
+      and user-friendly web experiences.
     </p>
-    <a href="img/cv.pdf" class="button button--flex text-sm">
+    <a href="cv.pdf" class="button button--flex text-sm">
       <i class="fa-solid fa-download"></i>DOWNLOAD CV
     </a>
   </section>
@@ -88,7 +90,7 @@
     <div class="project__item grid">
       <div class="project__container ">
         <div class="project__items">
-          <img src="img/interface.jpeg" alt="Interface Developer" class="project__img">
+          <img src="interface.jpeg" alt="Interface Developer" class="project__img">
         </div>
         <div class="project__data">
           <h3 class="project__title text-lg">Interface Developer</h3>
@@ -106,7 +108,7 @@
   
       <div class="project__container">
         <div class="project__items ">
-          <img src="img/college-stote.jpeg" alt="College Store" class="project__img">
+          <img src="college-stote.jpeg" alt="College Store" class="project__img">
         </div>
         <div class="project__data">
           <h3 class="project__title text-lg">College Store</h3>
@@ -124,7 +126,7 @@
   </section>
 
 
-  <section class="skills section container" id="skills">
+  <section class="skills section container" id="skill">
     <h2 class="section__title">Skills</h2>
     <div class="skills__container grid">
       <div class="skills__item">
@@ -161,24 +163,22 @@
   </section>
   <section id="contact" class="container mt-5">
     <h2>Contact Me</h2>
-    <form class="contact-form">
+    <form id="contact-form" class="contact-form">
       <div class="mb-3">
         <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" placeholder="Your Name">
+        <input type="text" class="form-control" id="name" placeholder="Your Name" required>
       </div>
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" placeholder="Your Email">
+        <input type="email" class="form-control" id="email" placeholder="Your Email" required>
       </div>
       <div class="mb-3">
         <label for="message" class="form-label">Message</label>
-        <textarea class="form-control" id="message" rows="3" placeholder="Your Message"></textarea>
+        <textarea class="form-control" id="message" rows="3" placeholder="Your Message" required></textarea>
       </div>
-      <button type="submit" class="btn btn-primary">Send Message</button>
+      <button type="submit" class="btn btn-primary" onclick="sendMail()">Send Message</button>
     </form>
-  </section>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-
+  </section> 
+    <script src="script.js"></script>
 </body>
 </html>

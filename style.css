@@ -133,9 +133,7 @@ textarea, input {
     height: 280px;
     background-size: cover;
     object-fit: cover;
-    border-radius: .5rem;
     transform: translateY(6.3rem);
-    box-shadow: 0 0 27px rgb(96 96 96 /34%);
 }
 .home__name,.home__work,.home__list,.home__social-link{
     color:#fff;
@@ -181,67 +179,102 @@ textarea, input {
     left: 0;
     width: 100%;
     z-index: 100;
-}
-
-.nav {
-    height: calc(var(--header-height));
+    transition: 0.3s;
+  }
+  
+  #menuList {
+    display: flex; /* Show menu by default on large screens */
+    gap: 30px;
+  }
+  
+  #menuList.active {
+    display: block;
+    width: 100%;
+    padding-left: 0 !important;
+  }
+  
+  nav {
+    padding: 10px 30px;
     display: flex;
     align-items: center;
-    justify-content: space-between; 
-}
-
-.nav__list {
-    display: flex;
-    column-gap: 1rem; /* Adds spacing between list items */
-}
-
-.nav__link {
-    color: white;
-    font-size: 0.9rem;
-    font-weight: var(--bold);
-    font-family: var(--mono-font);
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1rem;
-    position: relative; /* For the ::after pseudo-element */
-    transition: .3s;
-}
-
-.nav__link:hover {
-    opacity: .7;
-}
-
-.nav__link::after {
-    content: '';
+    justify-content: space-between;
+    background: black;
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background-color: #fff;
-    transition: width .3s, left .3s;
-    opacity: 0;
+    height: 70px;
+  }
+  
+  .logo {
+    color: #fff;
+  }
+  
+  nav ul {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+  
+  nav ul li {
+    list-style-type: none;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .menu-icon {
+    display: none;
+  }
+  
+  .menu-icon i {
+    color: #fff;
+    font-size: 30px;
+  }
+  
+  /* For small screens */
+  @media (max-width: 600px) {
+    #menuList {
+      display: none; /* Hidden by default on small screens */
+    }
+  
+    #menuList.active {
+      display: block;
+      flex-direction: column;
+      text-align: center;
+      background: #004274;
+      width: 100%;
+    }
+  
+    nav ul {
+      position: absolute;
+      top: 70px;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 0;
+      overflow: hidden;
+    }
+  
+    nav ul li {
+      padding: 20px;
+      padding-top: 0;
+    }
+  
+    .menu-icon {
+      display: block;
+    }
+  }
+/*scroll*/
+.scroll-header{
+    position: fixed;
+    background-color: var(--bg-color);
+    box-shadow: 0 5px 8px 0 rgb(0, 0, 0)/14%;
+}
+.skills__item:hover,.scroll-header .nav__link{
+    color: var(--text-color) !important;
 }
 
-.nav__link:hover::after {
-    width: 100%;
-    left: 0;
-    opacity: 1;
-}
 
-.active-link {
-    opacity: .7;
-}
-
-.active-link::after {
-    width: 100%;
-    left: 0;
-    opacity: 1;
-}
-
-.nav__toggle, .nav__close {
-    display: none; /* These can be shown later for mobile */
-}
 /* about*/
 .about {
     margin-bottom: 0.8em;
@@ -278,54 +311,66 @@ textarea, input {
 } */
 /* General styling for project section */
 .project__item {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0; /* Removes the gap between columns */
-  }
-  
-  .project__container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: stretch; /* Ensures the image and text are of the same height */
-    width: 100%;
-    border-radius: 2rem;
-    border: 1px solid var(--border-color);
-  }
-  
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusts columns based on screen size */
+  gap: 1rem; /* Adds a small gap between project items */
+}
+
+.project__container {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* Adjusted to have the image take more space */
+  align-items: stretch; /* Ensures the image and text are of the same height */
+  width: 100%;
+  border-radius: 2rem;
+  border: 1px solid var(--border-color);
+  overflow: hidden; /* Ensures content doesn't overflow the rounded corners */
+}
+.project__container:hover{
+    box-shadow: 3px 4px 3px black;
+    transition: 1s;
+}
+
+.project__items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0; /* Removes padding around the image */
+  margin: 0; /* Removes margin to align with the container */
+}
+
+.project__img {
+  width: 100%;
+  height: auto; /* Ensures the image maintains its aspect ratio */
+  object-fit: cover;
+ 
+}
+
+.project__data {
+  padding: 2rem;
+}
+
+.project__title {
+  margin-bottom: 0.8em;
+}
+
+.project__description {
+  margin-bottom: 2.5rem;
+  text-align: justify;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
   .project__item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    border-radius: 2rem;
-    /* Centers the image vertically if necessary */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusts to show fewer columns */
   }
-  .project__data{
-    padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  .project__item {
+    grid-template-columns: 1fr; /* Stacks items one by one on mobile screens */
   }
-  .project__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    border-top-left-radius: 2rem; /* Rounded top-left corner */
-    border-bottom-left-radius: 2rem;/* Ensures the image covers the container without distortion */
-  }
-  
-  .project__items {
-    padding:0;
-    margin: 0; /* Ensures no extra space around the text container */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  
-  .project__title {
-    margin-bottom: 0.8em;
-  }
-  
-  .project__description {
-    margin-bottom: 2.5rem;
-    text-align: justify;
-  }
+}
+
   /* skill*/
   .skills {
     padding: 2rem 0;
@@ -343,7 +388,10 @@ textarea, input {
     border-radius: 1rem;
     padding: 1rem;
   }
-  
+  .skills__item:hover{
+    box-shadow: 3px 4px 3px black;
+    transition: 1s;
+  }
   .skills__name {
     margin-bottom: 0.5rem;
     font-size: var(--fs-lg);
