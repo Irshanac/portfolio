@@ -330,7 +330,7 @@ textarea, input {
 .project__container:hover{
     box-shadow: 3px 4px 3px black;
     transition: 1s;
-    transform: scale(1.1);
+   
 }
 
 .project__items {
